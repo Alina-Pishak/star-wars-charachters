@@ -1,10 +1,12 @@
-import App from "@/components/App";
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
-      <App />
-    </main>
+    <>
+      <h1>dkskldkfslkdf</h1>
+      <Link href="/characters" className="text-xl">
+        Characters
+      </Link>
+    </>
   );
 }
