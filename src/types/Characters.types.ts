@@ -1,4 +1,4 @@
-import { ICharacter } from "../Character/Character.types";
+import { ICharacter } from "@/components/Character/Character.types";
 
 export interface IApiCharactersResponse {
   count: number;

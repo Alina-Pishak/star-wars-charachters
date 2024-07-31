@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 
 import { getCharacters } from "@/actions";
 
-import { ICharacter } from "./CharacterList.types";
+import { IApiCharactersResponse } from "./CharacterList.types";
+import { ICharacter } from "../Character/Character.types";
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
@@ -15,7 +16,7 @@ const CharacterList = () => {
 
   useEffect(() => {
     const loadCharacters = async () => {
-      const data = await getCharacters(page);
+      const data = await getCharacters<IApiCharactersResponse>(page);
       console.log(data);
       setCharacters(data.results);
       setTotalPages(Math.ceil(data.count / data.results.length));

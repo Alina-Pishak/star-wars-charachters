@@ -1,2 +1,4 @@
 export { getCharacters } from "./getCharacters";
-import { getCharacterById } from "./getCharacterById";
+export { getCharacterById } from "./getCharacterById";
+export { getFilms } from "./getFilms";
+export { getStarships } from "./getStarships";

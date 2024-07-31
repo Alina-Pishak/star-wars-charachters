@@ -6,7 +6,7 @@ const nextConfig = {
         protocol: "https",
         hostname: "starwars-visualguide.com",
         port: "",
-        pathname: "/assets/img/characters/**",
+        pathname: "/assets/img/**",
       },
     ],
   },
