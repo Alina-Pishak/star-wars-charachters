@@ -8,10 +8,11 @@ import CustomNode from "../CustomNode/CustomNode";
 import "@xyflow/react/dist/style.css";
 import { getFilms } from "@/actions/getFilms";
 import { getStarships } from "@/actions/getStarships";
+import Link from "next/link";
 
 const nodeTypes = { customNode: CustomNode };
 
-const Character: FC<ICharacterProps> = async ({
+const Character: FC<ICharacterProps> = ({
   character: { id, name },
   films,
   starships,
@@ -54,7 +55,7 @@ const Character: FC<ICharacterProps> = async ({
 
   const shipEdges = starships.map((_, index) => ({
     id: `film-ship-${index}`,
-    source: `film-${Math.floor(index / 2)}`, // Використовуйте правильний зв'язок
+    source: `film-${Math.floor(index / 2)}`,
     target: `ship-${index}`,
   }));
 
@@ -63,6 +64,9 @@ const Character: FC<ICharacterProps> = async ({
       className="bg-black h-screen w-full flex items-center justify-center"
       style={{ height: "100vh", width: "100%" }}
     >
+      <Link href="/characters" className="text-white">
+        All Characters
+      </Link>
       <ReactFlow
         nodes={[heroNode, ...filmNodes, ...shipNodes]}
         edges={[...filmEdges, ...shipEdges]}
