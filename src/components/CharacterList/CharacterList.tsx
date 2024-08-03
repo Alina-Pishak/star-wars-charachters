@@ -15,11 +15,11 @@ const CharacterList = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
   const [page, setPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
+  const [hasImageError, setHasImageError] = useState(false);
 
   useEffect(() => {
     const loadCharacters = async () => {
       const data = await getCharacters<IApiCharactersResponse>(page);
-      console.log(data);
       setCharacters(data.results);
       setTotalPages(Math.ceil(data.count / data.results.length));
     };
@@ -42,11 +42,16 @@ const CharacterList = () => {
               className="p-4 w-[157px] rounded shadow bg flex flex-col gap-3"
             >
               <Image
-                src={`https://starwars-visualguide.com/assets/img/characters/${character.id}.jpg`}
+                src={
+                  hasImageError
+                    ? "/images/no-image.webp"
+                    : `https://starwars-visualguide.com/assets/img/characters/${character.id}.jpg`
+                }
                 alt={character.name}
                 width={50}
                 height={50}
                 className="rounded-full w-28 h-28 object-cover"
+                onError={() => setHasImageError(true)}
               />
               <p className="text-sm text-center line-clamp-1">
                 {character.name}

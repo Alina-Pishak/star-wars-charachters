@@ -1,6 +1,6 @@
 import { NodeProps } from "@xyflow/react";
 
-export interface CustomNodeProps extends NodeProps {
+export interface CustomNodesProps extends NodeProps {
   data: {
     eye_color: string;
     gender: string;
