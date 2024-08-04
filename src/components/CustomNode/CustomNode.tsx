@@ -28,27 +28,30 @@ const CustomNode: React.FC<CustomNodeProps> = ({
   const [hasImageError, setHasImageError] = useState(false);
 
   return (
-    <div className="p-4 rounded shadow bg">
-      <div className=" flex gap-4">
+    <div className="p-4 rounded shadow bg md:p-6">
+      <div className="flex gap-4">
         <Image
           src={hasImageError ? "/images/no-image.webp" : imageUrl}
           alt={name}
           width={176}
           height={176}
-          className="rounded-full w-44 h-44 object-cover mb-3"
+          className="rounded-full w-44 h-44 object-cover mb-3 md:w-80 md:h-80"
           onError={() => setHasImageError(true)}
         />
 
         <ul>
           {characterTraits.map((trait, index) => (
-            <li key={index} className="text-xs text-stone-300 mb-3">
+            <li
+              key={index}
+              className="text-xs text-stone-300 mb-3 md:text-base"
+            >
               <span className="mr-2">{trait.property}:</span>
               <span>{trait.value}</span>
             </li>
           ))}
         </ul>
       </div>
-      <p className="mt-2">{name}</p>
+      <p className="mt-2 md:text-xl">{name}</p>
       <Handle type="source" position={Position.Bottom} />
       <Handle type="target" position={Position.Top} />
     </div>

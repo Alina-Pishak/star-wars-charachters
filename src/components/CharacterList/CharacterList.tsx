@@ -39,7 +39,7 @@ const CharacterList = () => {
           <li key={character.id}>
             <Link
               href={`/characters/${character.id}`}
-              className="p-4 w-[157px] rounded shadow bg flex flex-col gap-3"
+              className="p-4 w-[157px] rounded shadow bg flex flex-col gap-3 md:w-[240px]"
             >
               <Image
                 src={
@@ -50,45 +50,29 @@ const CharacterList = () => {
                 alt={character.name}
                 width={50}
                 height={50}
-                className="rounded-full w-28 h-28 object-cover"
+                className="rounded-full w-28 h-28 object-cover md:w-52 md:h-52"
                 onError={() => setHasImageError(true)}
               />
-              <p className="text-sm text-center line-clamp-1">
+              <p className="text-sm text-center line-clamp-1 md:text-base">
                 {character.name}
               </p>
             </Link>
           </li>
         ))}
       </ul>
-      {/* <div className="flex justify-between items-center mt-6"> */}
-      {/* <button
-          onClick={() => setPage(page - 1)}
-          disabled={page === 1}
-          className="px-4 py-2 rounded bg disabled:opacity-50 "
-        >
-          Previous
-        </button> */}
       <ul className="flex justify-center gap-2">
         {Array.from(Array(totalPages).keys()).map((number) => (
           <li key={number}>
             <button
               type="button"
               onClick={() => setPage(number + 1)}
-              className="bg text-xs p-1 rounded-full w-7 h-7"
+              className="bg text-xs p-1 rounded-full w-7 h-7 md:text-sm md:w-10 md:h-10"
             >
               {Number(number) + 1}
             </button>
           </li>
         ))}
       </ul>
-      {/* <button
-          onClick={() => setPage(page + 1)}
-          disabled={page === totalPages}
-          className="px-4 py-2 rounded bg disabled:opacity-50 "
-        >
-          Next
-        </button> */}
-      {/* </div> */}
     </section>
   );
 };

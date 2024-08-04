@@ -19,10 +19,3 @@ export interface IStarship {
   created: string;
   edited: string;
 }
-
-export interface IApiStarshipsResponse {
-  count: number;
-  next: null | string;
-  previous: null | string;
-  results: IStarship[];
-}

@@ -1,7 +1,8 @@
-import { FC } from "react";
+"use client";
+import { FC, useEffect, useState } from "react";
 import Link from "next/link";
 
-import { ReactFlow } from "@xyflow/react";
+import { ReactFlow, useReactFlow } from "@xyflow/react";
 
 import CustomNode from "../CustomNode";
 import CustomNodes from "../CustomNodes";
@@ -18,6 +19,27 @@ const Character: FC<ICharacterProps> = ({
   films,
   starships,
 }) => {
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth > 768 ? false : true);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const findFilmSources = (starship: number) => {
+    const film =
+      films
+        .find(({ starships }) => starships.includes(starship))
+        ?.id.toString() || "hero";
+    return `film-${film}`;
+  };
+
   const heroNode = {
     id: "hero",
     data: {
@@ -34,35 +56,42 @@ const Character: FC<ICharacterProps> = ({
   };
 
   const filmNodes = films.map((film, index) => ({
-    id: `film-${index}`,
+    id: `film-${film.id}`,
     data: {
       name: film.title,
       imageUrl: `https://starwars-visualguide.com/assets/img/films/${film.id}.jpg`,
     },
-    position: { x: 0, y: (index + 2) * 170 },
+    position: {
+      x: isMobile ? 0 : (index + 3) * 150,
+      y: isMobile ? (index + 2) * 200 : 0,
+    },
     type: "customNodes",
   }));
 
   const shipNodes = starships.map((ship, index) => ({
-    id: `ship-${index}`,
+    id: `ship-${ship.id}`,
     data: {
       name: ship.name,
       imageUrl: `https://starwars-visualguide.com/assets/img/starships/${ship.id}.jpg`,
     },
-    position: { x: 200, y: (index + 2) * 200 },
+    position: {
+      x: isMobile ? 200 : (index + 3) * 150,
+      y: isMobile ? (index + 2) * 200 : 300,
+    },
     type: "customNodes",
   }));
 
-  const filmEdges = films.map((_, index) => ({
+  const filmEdges = films.map((film, index) => ({
     id: `hero-film-${index}`,
     source: "hero",
-    target: `film-${index}`,
+    target: `film-${film.id}`,
   }));
 
-  const shipEdges = starships.map((_, index) => ({
+  const shipEdges = starships.map((starship, index) => ({
     id: `film-ship-${index}`,
-    source: `film-${Math.floor(index / 2)}w`,
-    target: `ship-${index}`,
+    source: findFilmSources(starship.id),
+
+    target: `ship-${starship.id}`,
   }));
   return (
     <section className="container" style={{ height: "100vh", width: "100%" }}>

@@ -15,10 +15,3 @@ export interface IFilm {
   created: string;
   edited: string;
 }
-
-export interface IApiFilmsResponse {
-  count: number;
-  next: null | string;
-  previous: null | string;
-  results: IFilm[];
-}
