@@ -1,4 +1,4 @@
-import { IFilm } from "@/types/Film.types";
+import { IFilm } from "@/types";
 
 export const findFilmSources = (films: IFilm[], starship: number) => {
   const film = films

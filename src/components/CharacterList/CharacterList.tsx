@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { getCharacters } from "@/actions";
 
-import Icon from "../../../public/icons/Arrow.svg";
+import Icon from "@/../public/icons/Arrow.svg";
 import CharacterListItem from "../CharacterListItem";
 
 import { IApiCharactersResponse } from "./CharacterList.types";

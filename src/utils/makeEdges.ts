@@ -1,5 +1,4 @@
-import { IFilm } from "@/types/Film.types";
-import { IStarship } from "@/types/Starships.types";
+import { IFilm, IStarship } from "@/types";
 import { findFilmSources } from "./findFilmSources";
 
 export const makeEdges = (films: IFilm[], starships: IStarship[]) => {

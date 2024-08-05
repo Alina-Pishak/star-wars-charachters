@@ -1,6 +1,6 @@
 import { ICharacter } from "@/components/Character/Character.types";
-import { IFilm } from "@/types/Film.types";
-import { IStarship } from "@/types/Starships.types";
+
+import { IFilm, IStarship } from "@/types";
 
 export const makeNodes = (
   character: ICharacter,

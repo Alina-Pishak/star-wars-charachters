@@ -1,5 +1,4 @@
-import { IFilm } from "@/types/Film.types";
-import { IStarship } from "@/types/Starships.types";
+import { IFilm, IStarship } from "@/types";
 
 export interface ICharacterProps {
   character: ICharacter;

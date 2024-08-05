@@ -3,8 +3,7 @@ import { getCharacterById, getFilmById, getStarshipById } from "@/actions";
 import Character from "@/components/Character";
 
 import { ICharacter } from "@/components/Character/Character.types";
-import { IFilm } from "@/types/Film.types";
-import { IStarship } from "@/types/Starships.types";
+import { IFilm, IStarship } from "@/types";
 import { ReactFlowProvider } from "@xyflow/react";
 
 const CharacterPage = async ({ params }: { params: { id: string } }) => {

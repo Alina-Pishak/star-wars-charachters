@@ -6,7 +6,7 @@ import { ReactFlow } from "@xyflow/react";
 
 import CustomNode from "../CustomNode";
 import CustomNodes from "../CustomNodes";
-import Icon from "../../../public/icons/Arrow.svg";
+import Icon from "@/../public/icons/Arrow.svg";
 
 import { makeEdges, makeNodes } from "@/utils";
 
