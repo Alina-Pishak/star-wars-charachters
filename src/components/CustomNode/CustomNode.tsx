@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 
@@ -35,7 +36,7 @@ const CustomNode: React.FC<CustomNodeProps> = ({
           alt={name}
           width={176}
           height={176}
-          className="rounded-full w-44 h-44 object-cover mb-3 md:w-80 md:h-80"
+          className="rounded-full w-44 h-44 object-cover mb-3 md:w-56 md:h-56 xl:w-80 xl:h-80"
           onError={() => setHasImageError(true)}
         />
 
@@ -45,13 +46,13 @@ const CustomNode: React.FC<CustomNodeProps> = ({
               key={index}
               className="text-xs text-stone-300 mb-3 md:text-base"
             >
-              <span className="mr-2">{trait.property}:</span>
+              <span className="mr-2 font-bold">{trait.property}:</span>
               <span>{trait.value}</span>
             </li>
           ))}
         </ul>
       </div>
-      <p className="mt-2 md:text-xl">{name}</p>
+      <p className="mt-2 md:text-xl font-bold">{name}</p>
       <Handle type="source" position={Position.Bottom} />
       <Handle type="target" position={Position.Top} />
     </div>

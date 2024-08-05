@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { getCharacters } from "@/actions";
 
+import Icon from "../../../public/icons/Arrow.svg";
+import CharacterListItem from "../CharacterListItem";
+
 import { IApiCharactersResponse } from "./CharacterList.types";
 import { ICharacter } from "../Character/Character.types";
-
-import Icon from "../../../public/icons/Arrow.svg";
 
 const CharacterList = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
@@ -36,28 +36,12 @@ const CharacterList = () => {
       </h1>
       <ul className="flex flex-wrap gap-3 mb-5 justify-center">
         {characters.map((character) => (
-          <li key={character.id}>
-            <Link
-              href={`/characters/${character.id}`}
-              className="p-4 w-[157px] rounded shadow bg flex flex-col gap-3 md:w-[240px]"
-            >
-              <Image
-                src={
-                  hasImageError
-                    ? "/images/no-image.webp"
-                    : `https://starwars-visualguide.com/assets/img/characters/${character.id}.jpg`
-                }
-                alt={character.name}
-                width={50}
-                height={50}
-                className="rounded-full w-28 h-28 object-cover md:w-52 md:h-52"
-                onError={() => setHasImageError(true)}
-              />
-              <p className="text-sm text-center line-clamp-1 md:text-base">
-                {character.name}
-              </p>
-            </Link>
-          </li>
+          <CharacterListItem
+            key={character.id}
+            character={character}
+            hasImageError={hasImageError}
+            setHasImageError={setHasImageError}
+          />
         ))}
       </ul>
       <ul className="flex justify-center gap-2">
