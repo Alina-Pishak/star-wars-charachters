@@ -11,7 +11,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone [https://github.com/Alina-Pishak/medicine-delivery-app.git](https://github.com/Alina-Pishak/star-wars-charachters.git)
+$ git clone https://github.com/Alina-Pishak/star-wars-charachters.git
 
 # Go into the repository
 $ cd star-wars-charachters
