@@ -6,7 +6,6 @@ import { ReactFlow } from "@xyflow/react";
 
 import CustomNode from "../CustomNode";
 import CustomNodes from "../CustomNodes";
-import Icon from "@/../public/icons/Arrow.svg";
 
 import { makeEdges, makeNodes } from "@/utils";
 
@@ -37,8 +36,7 @@ const Character: FC<ICharacterProps> = ({ character, films, starships }) => {
 
   return (
     <section className="container" style={{ height: "100vh", width: "100%" }}>
-      <Link href="/characters" className="flex gap-1 items-center mb-5 mt-2">
-        <Icon width={18} height={18} className="stroke-stone-400 rotate-180" />
+      <Link href="/characters" className="mb-5 mt-2">
         <p className="text-xs text-stone-400">Back</p>
       </Link>
       <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} />

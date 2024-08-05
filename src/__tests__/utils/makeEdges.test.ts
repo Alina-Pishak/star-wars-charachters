@@ -2,7 +2,7 @@ import { makeEdges } from "@/utils/makeEdges";
 
 import { IFilm, IStarship } from "@/types/";
 
-jest.mock("../../utils/findFilmSources", () => ({
+jest.mock("@/utils/findFilmSources", () => ({
   findFilmSources: jest.fn(() => "film-1"),
 }));
 

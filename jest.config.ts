@@ -15,6 +15,7 @@ const config: Config = {
   moduleNameMapper: {
     "^@/components/(.*)$": "<rootDir>/src/components/$1",
     "^@/actions$": "<rootDir>/src/actions",
+    "^@/utils$": "<rootDir>/src/utils",
   },
 };
 export default createJestConfig(config);

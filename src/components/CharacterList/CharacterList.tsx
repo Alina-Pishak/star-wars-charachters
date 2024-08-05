@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 
 import { getCharacters } from "@/actions";
 
-import Icon from "@/../public/icons/Arrow.svg";
 import CharacterListItem from "../CharacterListItem";
 
 import { IApiCharactersResponse } from "./CharacterList.types";
@@ -27,8 +26,7 @@ const CharacterList = () => {
   }, [page]);
   return (
     <section className="container mx-auto text-white min-h-screen">
-      <Link href="/" className="flex gap-1 items-center mb-5 mt-2">
-        <Icon width={18} height={18} className="stroke-stone-400 rotate-180" />
+      <Link href="/" className=" mb-5 mt-2">
         <p className="text-xs text-stone-400">Back</p>
       </Link>
       <h1 className="text-xl font-bold mb-6 uppercase text-center">
