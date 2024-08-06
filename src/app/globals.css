@@ -13,14 +13,10 @@ body {
   }
 
   .bg {
-    @apply bg-stone-700 bg-opacity-50;
+    @apply bg-stone-700 bg-opacity-50 transition hover:bg-stone-800 focus:bg-stone-800;
   }
 
-  .animated-border {
-    position: relative;
-    padding: 10px 20px;
-    border-radius: 8px;
-    overflow: hidden;
-    z-index: 1;
+  .spaces {
+    @apply py-5;
   }
 }

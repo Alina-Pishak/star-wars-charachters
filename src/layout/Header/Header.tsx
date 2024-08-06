@@ -4,7 +4,10 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="py-2 pt-2 pb-2 container">
+    <header
+      className="spaces py-2 pt-2 pb-2 container"
+      style={{ paddingTop: "20px", paddingBottom: "20px" }}
+    >
       <Link href="/" className="flex justify-center">
         <Image
           src="/images/star-wars-logo-2x.webp"
