@@ -1,4 +1,4 @@
-export const getCharacters = async <T>(page: number): Promise<T> => {
+export const getCharacters = async <T>(page = 1): Promise<T> => {
   const res = await fetch(
     `https://sw-api.starnavi.io/people/?page=${page}&count=12`
   );
