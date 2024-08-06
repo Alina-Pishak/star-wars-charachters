@@ -1,3 +1,5 @@
+import { ReactFlowProvider } from "@xyflow/react";
+
 import {
   getCharacterById,
   getCharacters,
@@ -8,12 +10,11 @@ import {
 import Character from "@/components/Character";
 
 import { ICharacter } from "@/components/Character/Character.types";
-import { IFilm, IStarship } from "@/types";
-import { ReactFlowProvider } from "@xyflow/react";
+import { IApiCharactersResponse, IFilm, IStarship } from "@/types";
 
 export const generateStaticParams = async () => {
-  const characters = await getCharacters<ICharacter[]>();
-  return characters.map((character) => ({
+  const data = await getCharacters<IApiCharactersResponse[]>();
+  return data.results.map((character) => ({
     id: character.id.toString(),
   }));
 };

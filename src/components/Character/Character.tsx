@@ -36,8 +36,11 @@ const Character: FC<ICharacterProps> = ({ character, films, starships }) => {
 
   return (
     <section className="container" style={{ height: "100vh", width: "100%" }}>
-      <Link href="/characters" className="mb-5 mt-2">
-        <p className="text-xs text-stone-400">Back</p>
+      <Link
+        href="/characters"
+        className="mb-5 text-xs text-stone-400 inline-block"
+      >
+        Back
       </Link>
       <ReactFlow nodes={nodes} edges={edges} nodeTypes={nodeTypes} />
     </section>
